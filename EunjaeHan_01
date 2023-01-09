@@ -1,2 +1,27 @@
 require(h2o)
 h2o.init(nthreads = 3, max_mem_size = "8g")
+
+data(iris)
+iris_h2o <- as.h2o(iris, destination_frame = "iris_h2o")
+
+h2o.ls()
+
+class(iris_h2o)
+
+head(iris_h2o)
+
+tail(iris_h2o)
+
+str(iris_h2o)
+
+n_rows <- nrow(iris_h2o)
+n_cols <- ncol(iris_h2o)
+print(paste0("행의 개수 : ", n_rows))
+
+print(paste0("열의 개수 : ", n_cols))
+
+irisPath <- system.file("extdata", "prostate_folder", package = "h2o")
+
+iris_h2o_imp <- h2o.importFile(irisPath, destination_frame = "iris_h2o_imp")
+
+h2o.ls()
