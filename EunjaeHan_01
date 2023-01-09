@@ -1,0 +1,2 @@
+require(h2o)
+h2o.init(nthreads = 3, max_mem_size = "8g")
